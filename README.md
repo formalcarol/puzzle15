@@ -1,7 +1,7 @@
 NTOU CSE Class AI Lab2  
 Source: [Book] Artificial Intelligence: A Modern Approach  
 
-這是一個15-puzzle的問題，本案有4*4的拼圖，總共有16格，並給予1~15的數值，隨機分布在16格中，則會有1個為空格  
+這是一個15-puzzle的問題，本案有4*4的拼圖，共16格，並給予1~15的數值，隨機分布在16格中，則會有1個為空格  
 通過拼圖間的交換，我們希望最後結果可以按照順序排列(如圖)  
 ![Alt text](puzzle.jpg)
 
