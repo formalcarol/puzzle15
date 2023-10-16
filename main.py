@@ -1,3 +1,4 @@
+import time
 class PuzzleSolver:
     def __init__(self, strategy):   # param strategy是 BreadthFirst 或 AStar_h1 或 AStar_h2
         self._strategy = strategy
@@ -178,8 +179,8 @@ class Puzzle:
         puzzle_copy[x1][y1], puzzle_copy[x2][y2] = puzzle_copy[x2][y2], puzzle_copy[x1][y1]
         return puzzle_copy
 
-    def _get_coordinates(self, tile, position=None):    # 此元素tile在正確拼圖position的位置(i, j)
-        if not position:                        # 若_get_coordinates(0)，則取得現在位置
+    def _get_coordinates(self, tile, position=None):    # 值為tile的元素在正確拼圖position的位置(i, j)
+        if not position:                                # 若_get_coordinates(tile)，則取得tile的現在位置
             position = self.position
         for i in range(self.PUZZLE_NUM_ROWS):
             for j in range(self.PUZZLE_NUM_COLUMNS):
@@ -220,7 +221,9 @@ if __name__ == '__main__':
     puzzle = Puzzle([[4, 1, 2, 3], [5, 6, 7, 11], [8, 9, 10, 15], [12, 13, 14, 0]])
     for strategy in [BreadthFirst, AStar_h1, AStar_h2]:  # 分別使用BreadthFirst和AStar方法
         p = PuzzleSolver(strategy(puzzle))
+        start_time = time.time()
         p.run()
+        end_time = time.time()
         p.print_performance()
+        print(strategy(puzzle), "uses", end_time-start_time, "seconds")
         p.print_solution()
-    

@@ -1,22 +1,11 @@
 NTOU CSE Class AI Lab2  
-Source: [Book] Artificial Intelligence: A Modern Approach
+Source: [Book] Artificial Intelligence: A Modern Approach  
 
-The 15-puzzle is a sliding puzzle that consists of a frame of numbered
-square tiles in random order with one tile missing.
-The puzzle also exists in other sizes, particularly the smaller 8-puzzle.
-If the size is 3x3 tiles, the puzzle is called the 8-puzzle or 9-puzzle, and
-if 4x4 tiles, the puzzle is called the 15-puzzle or 16-puzzle named,
-respectively, for the number of tiles and the number of spaces.
-
-The object of the puzzle is to place the tiles in order by making sliding
-moves that use the empty space.
-The n-puzzle is a classical problem for modelling algorithms involving
-heuristics.
-
+這是一個15-puzzle的問題，本案有4*4的拼圖，總共有16格，並給予1~15的數值，隨機分布在16格中，則會有1個為空格  
+通過拼圖間的交換，我們希望最後結果可以按照順序排列(如圖)  
 ![Alt text](puzzle.jpg)
 
-Commonly used heuristics for this problem are:
-
-H1: counting the number of misplaced tiles, and
-H2: finding the sum of the Manhattan distances between each block
-      and its position in the goal configuration
+本案採3種不同的策略滑動拼圖塊  
+1. BFS演算法 暴力搜尋 且 橫向優先  
+2. A*演算法+h1啟發函式 min(sum(每個元素不在其正確位置的個數))為優先  
+3. A*演算法+h2啟發函式 min(sum(每個元素距離其正確位置的格數))為優先  
